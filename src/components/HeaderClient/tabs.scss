@@ -1,0 +1,58 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variable.scss';
+
+.wrapper-auth-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  &-item {
+    width: 50%;
+    padding: 0 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-transform: uppercase;
+    @media (max-width: $xs-max-width) {
+      font-size: 1.6rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 80%;
+      width: 2px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    &:last-child::after {
+      display: none;
+    }
+
+    // &.selected {
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     height: 80%;
+    //     width: 2px;
+    //     background-color: rgba(245, 134, 52, 0.5);
+    //   }
+    // }
+
+    &.selected {
+      border-bottom: 3px solid $primary-color;
+      font-weight: 700;
+    }
+  }
+}

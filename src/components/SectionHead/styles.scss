@@ -1,0 +1,29 @@
+.wrapper-section-head {
+  margin: 32px 0 24px 0;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  .section-head-title {
+    font-size: 8px;
+    font-weight: 400;
+    padding: 10px 0px;
+    width: 272px;
+    text-align: center;
+    color: #00ac5b;
+    background-color: #d8ecd4;
+    border: 1px solid #ff1e56;
+    border-radius: 16px 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    z-index: -1;
+    background-color: #ff1e56;
+  }
+}

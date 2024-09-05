@@ -1,0 +1,115 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variable.scss';
+
+.wrapper-footer {
+  margin-top: 32px;
+
+  .container {
+    height: 100%;
+  }
+
+  &-bottom {
+    background-color: #000000;
+    padding: 45px 0;
+
+    @media (max-width: $xs-max-width) {
+      padding: 24px 0;
+    }
+
+    .wrapper-footer-bottom-item {
+      text-transform: uppercase;
+
+      @media (max-width: $md-max-width) {
+        ul {
+          li {
+            font-size: 1.4rem !important;
+          }
+        }
+      }
+
+      @media (max-width: $xs-max-width) {
+        margin-left: -10px;
+      }
+
+      &-title {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        color: #ff1e56;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      ul {
+
+        li {
+          color: #ffffff;
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          /* 150% */
+          margin-bottom: 4px;
+
+          svg {
+            margin-right: 4px;
+
+            path {
+              fill: $primary-color;
+            }
+          }
+
+          a {
+            color: #ffffff;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &-social {
+        @media (max-width: $md-max-width) {
+          gap: 8px !important;
+        }
+      }
+    }
+
+    .wrapper-footer-bottom-item-contact {
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: #ffffff;
+
+        li {
+          font-weight: 500;
+        }
+      }
+
+      @media (max-width: $xs-max-width) {
+        margin-left: -20px;
+      }
+    }
+  }
+
+  &-all-right {
+    background-color: #b6beb7b3;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      // -webkit-text-stroke: 1px #000000;
+      color: #000000;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: normal;
+
+      @media (max-width: $xs-max-width) {
+        font-size: 1rem;
+      }
+    }
+  }
+}

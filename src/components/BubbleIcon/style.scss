@@ -1,0 +1,53 @@
+@import '@/styles/mixins.scss';
+
+.bubble-icon {
+  .wrapper-ring {
+    .container-ring {
+      .ant-btn-icon {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .wrapper-action-contact {
+    position: fixed;
+    bottom: 180px;
+    right: 20px;
+
+    .btn-icon-facebook,
+    .btn-icon-phone,
+    .btn-icon-zalo {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .btn-icon-facebook {
+      .ant-btn-icon {
+        svg {
+          width: 30px !important;
+          height: 30px;
+        }
+      }
+      .bubble-fb-icon {
+        padding-top: 5px;
+      }
+    }
+
+    .btn-icon-phone {
+      .ant-btn-icon {
+        svg {
+          width: 36px !important;
+          height: 36px;
+        }
+      }
+    }
+    .ant-btn {
+      width: 46px !important;
+      height: 46px;
+      border-radius: 50%;
+    }
+  }
+}

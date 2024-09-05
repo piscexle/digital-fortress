@@ -1,0 +1,233 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variable.scss';
+
+.wrapper-header-client {
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+
+  // header mid mobile
+
+  &-nav-bar-mobile {
+    display: none;
+
+    @media (max-width: $xs-max-width) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000000;
+      height: 50px;
+    }
+
+    &-content {
+      &-logo {
+        position: relative;
+        width: 40px;
+        height: 40px;
+      }
+
+      @media (max-width: $md-min-width) {
+        width: 54px;
+        height: 54px;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .text-hotline {
+      color: #ffffff;
+    }
+  }
+
+  // header mid
+  &-nav-bar {
+    height: 80px;
+    background-color: #000000;
+
+    @media (max-width: $md-min-width) {
+      height: 60px;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    &-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+
+      &-logo {
+        position: relative;
+        width: 80px;
+        height: 80px;
+
+        @media (max-width: $md-min-width) {
+          display: none;
+          width: 54px;
+          height: 54px;
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      &-search {
+        width: 40%;
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width: $sm-max-width) {
+          width: 60%;
+          left: 52%;
+        }
+
+        @media (max-width: $xs-max-width) {
+          left: 40%;
+          width: 76%;
+        }
+
+        @media (min-width: $md-min-width) {
+          width: 35%;
+          left: 38%;
+        }
+
+        .wrapper-search-input {
+          .ant-btn-primary {
+            background-color: #ffffff;
+            color: black;
+            height: 38px;
+          }
+
+          .ant-input {
+            border-color: #ffffff;
+          }
+
+          .ant-input-outlined {
+            border: none !important;
+          }
+
+          .ant-input-search-button:hover {
+            color: #ffffff !important;
+            background: #ff1e56 !important;
+          }
+        }
+      }
+
+      &-menu {
+        .hidden {
+          @media (max-width: $md-max-width) {
+            visibility: hidden;
+          }
+        }
+
+        .ant-menu {
+          background-color: $primary-color;
+          border-bottom: none;
+        }
+
+        &-link {
+          p {
+            position: relative;
+          }
+        }
+
+        &-icon {
+          font-size: 25px;
+          position: relative;
+        }
+
+        &-title {
+          color: #ffffff;
+          font-size: 15px;
+
+          @media (max-width: $xs-max-width) {
+            display: none;
+          }
+        }
+
+        svg {
+          color: #ffffff;
+
+          @media (max-width: $xs-max-width) {
+            width: 24px !important;
+            height: 24px !important;
+          }
+        }
+
+        .wrapper-auth-btn {
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          background-color: #ff1e56;
+          border: none;
+          color: #ffffff;
+
+          .anticon-user {
+            font-size: 2.8rem;
+          }
+
+          svg {
+            color: #ffffff;
+          }
+
+          &:hover {
+            color: #ff1e56 !important;
+            border-color: #ff1e56 !important;
+            svg {
+              color: #ff1e56;
+            }
+          }
+          .wrapper-auth-info-logo {
+            position: relative;
+            width: 30px;
+            height: 30px;
+
+            img {
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper-draw-header {
+  .ant-drawer-body {
+    padding: 0 !important;
+  }
+
+  &-content {
+    display: flex;
+
+    &-left {
+      width: 150px;
+
+      &-item {
+        padding: 12px;
+        background-color: #f3f5f8;
+        text-align: center;
+        border-bottom: 1px dashed #e4e9f2;
+      }
+    }
+
+    &-right {
+      width: calc(100% - 150px);
+
+      &-item {
+        padding: 12px;
+        background-color: #000000b1;
+      }
+    }
+  }
+}

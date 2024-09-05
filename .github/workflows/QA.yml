@@ -1,0 +1,32 @@
+name: Deploy QA
+
+on:
+  push:
+    branches:
+      - QA
+
+jobs:
+  deploy_qa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: SSH into Ubuntu Server and Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.QA_SERVER_HOST }}
+          username: ${{ secrets.QA_SERVER_USERNAME }}
+          password: ${{ secrets.QA_SERVER_PASSWORD }}
+          port: ${{ secrets.QA_SERVER_PORT }}
+          script: |
+            cd ~/dev/dev-digital-fortress/digital-fortress-fe
+            git checkout QA
+            git fetch -p
+            git pull
+            cd ..
+            docker stop dev-digital-fortress-frontend || true
+            docker rm dev-digital-fortress-frontend || true
+            docker rmi dev-digital-fortress-dev-digital-fortress-frontend
+            docker compose up -d

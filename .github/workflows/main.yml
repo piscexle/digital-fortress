@@ -1,0 +1,32 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: SSH into Ubuntu Server and Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.PRO_SERVER_HOST }}
+          username: ${{ secrets.PRO_SERVER_USERNAME }}
+          password: ${{ secrets.PRO_SERVER_PASSWORD }}
+          port: ${{ secrets.PRO_SERVER_PORT }}
+          script: |
+            cd ~/digital-fortress/digital-fortress-fe
+            git checkout main
+            git fetch -p
+            git pull
+            cd ..
+            docker stop digital-fortress-frontend || true
+            docker rm digital-fortress-frontend || true
+            docker rmi digital-fortress-digital-fortress-frontend
+            docker compose up -d
